@@ -1,27 +1,39 @@
 // ============================================
+// PRELOADER
+// ============================================
+document.addEventListener('DOMContentLoaded', function() {
+    const preloader = document.getElementById('preloader');
+    if (preloader) {
+        setTimeout(() => {
+            preloader.classList.add('hidden');
+        }, 800);
+    }
+});
+
+// ============================================
 // NAVBAR: Hamburger Menu
 // ============================================
-document.addEventListener('DOMContentLoaded', function () {
-    const hamburger = document.getElementById('hamburger');
-    const navMenu = document.getElementById('navMenu');
+const hamburger = document.getElementById('hamburger');
+const navMenu = document.getElementById('navMenu');
 
-    hamburger.addEventListener('click', function () {
+if (hamburger && navMenu) {
+    hamburger.addEventListener('click', function() {
         navMenu.classList.toggle('active');
     });
 
-    // Close menu on link click (mobile)
     document.querySelectorAll('.nav-menu a').forEach(link => {
         link.addEventListener('click', () => {
             navMenu.classList.remove('active');
         });
     });
-});
+}
 
 // ============================================
 // NAVBAR: Scroll Effect
 // ============================================
-window.addEventListener('scroll', function () {
-    const navbar = document.getElementById('navbar');
+const navbar = document.getElementById('navbar');
+
+window.addEventListener('scroll', function() {
     if (window.scrollY > 80) {
         navbar.classList.add('scrolled');
     } else {
@@ -57,8 +69,8 @@ window.addEventListener('scroll', () => {
 // ============================================
 const moreBtns = document.querySelectorAll('.btn-more');
 
-moreBtns.forEach((btn, index) => {
-    btn.addEventListener('click', function (e) {
+moreBtns.forEach((btn) => {
+    btn.addEventListener('click', function(e) {
         e.stopPropagation();
         const card = this.closest('.card');
         const extra = card.querySelector('.extra');
@@ -68,11 +80,21 @@ moreBtns.forEach((btn, index) => {
         if (extra.style.display === 'block') {
             extra.style.display = 'none';
             icon.className = 'fas fa-plus-circle';
-            span.textContent = "Ko'proq";
+            span.textContent = 'Read More';
         } else {
+            // Close all other extras
+            document.querySelectorAll('.extra').forEach(e => {
+                if (e !== extra) {
+                    e.style.display = 'none';
+                    const parentCard = e.closest('.card');
+                    const btn = parentCard.querySelector('.btn-more');
+                    btn.querySelector('i').className = 'fas fa-plus-circle';
+                    btn.querySelector('span').textContent = 'Read More';
+                }
+            });
             extra.style.display = 'block';
             icon.className = 'fas fa-minus-circle';
-            span.textContent = "Qisqartirish";
+            span.textContent = 'Show Less';
         }
     });
 });
@@ -97,8 +119,12 @@ function searchPlaces() {
     });
 }
 
-searchInput.addEventListener('keyup', searchPlaces);
-searchBtn.addEventListener('click', searchPlaces);
+if (searchInput) {
+    searchInput.addEventListener('keyup', searchPlaces);
+}
+if (searchBtn) {
+    searchBtn.addEventListener('click', searchPlaces);
+}
 
 // ============================================
 // FILTER TAGS
@@ -106,8 +132,7 @@ searchBtn.addEventListener('click', searchPlaces);
 const tags = document.querySelectorAll('.tag');
 
 tags.forEach(tag => {
-    tag.addEventListener('click', function () {
-        // Remove active from all tags
+    tag.addEventListener('click', function() {
         tags.forEach(t => t.classList.remove('active'));
         this.classList.add('active');
 
@@ -127,13 +152,12 @@ tags.forEach(tag => {
             }
         });
 
-        // Clear search input when filter is applied
-        searchInput.value = '';
+        if (searchInput) searchInput.value = '';
     });
 });
 
 // ============================================
-// STATISTICS COUNTER (with Intersection Observer)
+// STATISTICS COUNTER
 // ============================================
 const statItems = document.querySelectorAll('.stat-item');
 
@@ -174,30 +198,27 @@ window.addEventListener('scroll', () => {
     }
 });
 
-backToTop.addEventListener('click', () => {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
+if (backToTop) {
+    backToTop.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
     });
-});
+}
 
 // ============================================
-// CLOSE EXTRA CONTENT ON CLICK OUTSIDE
+// CLOSE EXTRA ON CLICK OUTSIDE
 // ============================================
-document.addEventListener('click', function (e) {
-    const extras = document.querySelectorAll('.extra');
-    const buttons = document.querySelectorAll('.btn-more');
-
-    extras.forEach((extra, index) => {
+document.addEventListener('click', function(e) {
+    document.querySelectorAll('.extra').forEach(extra => {
         if (extra.style.display === 'block') {
             const card = extra.closest('.card');
-            const btn = card.querySelector('.btn-more');
             if (!card.contains(e.target)) {
                 extra.style.display = 'none';
-                const icon = btn.querySelector('i');
-                const span = btn.querySelector('span');
-                icon.className = 'fas fa-plus-circle';
-                span.textContent = "Ko'proq";
+                const btn = card.querySelector('.btn-more');
+                btn.querySelector('i').className = 'fas fa-plus-circle';
+                btn.querySelector('span').textContent = 'Read More';
             }
         }
     });
@@ -207,7 +228,7 @@ document.addEventListener('click', function (e) {
 // SMOOTH SCROLL FOR NAV LINKS
 // ============================================
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
+    anchor.addEventListener('click', function(e) {
         const targetId = this.getAttribute('href');
         if (targetId === '#') return;
         const target = document.querySelector(targetId);
@@ -221,23 +242,44 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 // ============================================
-// KEYBOARD SHORTCUT: ESC to close extras
+// ESC KEY TO CLOSE EXTRAS
 // ============================================
-document.addEventListener('keydown', function (e) {
+document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
-        const extras = document.querySelectorAll('.extra');
-        extras.forEach(extra => {
+        document.querySelectorAll('.extra').forEach(extra => {
             if (extra.style.display === 'block') {
                 extra.style.display = 'none';
                 const card = extra.closest('.card');
                 const btn = card.querySelector('.btn-more');
-                const icon = btn.querySelector('i');
-                const span = btn.querySelector('span');
-                icon.className = 'fas fa-plus-circle';
-                span.textContent = "Ko'proq";
+                btn.querySelector('i').className = 'fas fa-plus-circle';
+                btn.querySelector('span').textContent = 'Read More';
             }
         });
     }
 });
 
-console.log('🌟 Samarqand.uz — Tarix va madaniyat sayti yuklandi!');
+// ============================================
+// ANIMATE ON SCROLL (using Intersection Observer)
+// ============================================
+const animateElements = document.querySelectorAll('.animate__animated');
+
+const animateObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const el = entry.target;
+            const delay = parseInt(el.dataset.delay) || 0;
+            setTimeout(() => {
+                el.classList.add('animate__fadeInUp');
+                el.style.opacity = '1';
+            }, delay);
+            animateObserver.unobserve(el);
+        }
+    });
+}, { threshold: 0.1 });
+
+animateElements.forEach(el => {
+    el.style.opacity = '0';
+    animateObserver.observe(el);
+});
+
+console.log('🌟 Samarkand.uz — Website loaded successfully!');
