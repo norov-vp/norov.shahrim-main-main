@@ -1,21 +1,24 @@
 <!DOCTYPE html>
-<html lang="uz">
+<html lang="en">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
-    <title>Samarqand — Tarix va Madaniyat Markazi</title>
-    <meta name="description" content="Samarqand — buyuk tarix va madaniyat markazi" />
+    <title>Samarkand — History & Culture Center</title>
+    <meta name="description" content="Samarkand — the heart of the Silk Road, 2500 years of civilization" />
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
     
     <!-- Font Awesome 6 (Icons) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    
     <!-- CSS -->
-    <link rel="stylesheet" href="assets/style.css" />
+    <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 
@@ -24,13 +27,13 @@
         <div class="nav-container">
             <div class="logo">
                 <i class="fas fa-landmark"></i>
-                <span>Samarqand</span>
+                <span>Samarkand</span>
             </div>
             <ul class="nav-menu" id="navMenu">
-                <li><a href="#home" class="active"><i class="fas fa-home"></i> Bosh sahifa</a></li>
-                <li><a href="#places"><i class="fas fa-map-pin"></i> Joylar</a></li>
-                <li><a href="#mapSection"><i class="fas fa-location-dot"></i> Lokatsiya</a></li>
-                <li><a href="#contact"><i class="fas fa-envelope"></i> Aloqa</a></li>
+                <li><a href="#home" class="active"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="#places"><i class="fas fa-map-pin"></i> Places</a></li>
+                <li><a href="#mapSection"><i class="fas fa-location-dot"></i> Location</a></li>
+                <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
             </ul>
             <div class="hamburger" id="hamburger">
                 <span></span>
@@ -43,30 +46,43 @@
     <!-- ====== HERO SECTION ====== -->
     <section class="hero" id="home">
         <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <h1 class="hero-title">Samarqand</h1>
-            <p class="hero-subtitle">Buyuk tarix va madaniyat markazi</p>
-            <p class="hero-desc"><i class="fas fa-road"></i> Ipak yo'lining qalbi — 2500 yillik sivilizatsiya</p>
-            <a href="#places" class="btn-hero">
-                <i class="fas fa-arrow-down"></i> Kashf eting
-            </a>
+        <div class="hero-particles" id="particles"></div>
+        <div class="hero-content animate__animated animate__fadeInUp">
+            <div class="hero-badge animate__animated animate__pulse animate__infinite">
+                <i class="fas fa-star"></i> UNESCO World Heritage
+            </div>
+            <h1 class="hero-title">Samarkand</h1>
+            <p class="hero-subtitle">Heart of the Great History & Culture</p>
+            <p class="hero-desc"><i class="fas fa-road"></i> Heart of the Silk Road — 2500 years of civilization</p>
+            <div class="hero-buttons">
+                <a href="#places" class="btn-hero">
+                    <i class="fas fa-arrow-down"></i> Explore
+                </a>
+                <a href="#mapSection" class="btn-hero-outline">
+                    <i class="fas fa-location-dot"></i> Map
+                </a>
+            </div>
+        </div>
+        <div class="hero-scroll">
+            <span>Scroll Down</span>
+            <i class="fas fa-chevron-down"></i>
         </div>
     </section>
 
     <!-- ====== SEARCH ====== -->
     <section class="search-section" id="places">
         <div class="container">
-            <div class="search-box">
+            <div class="search-box animate__animated animate__fadeInDown">
                 <i class="fas fa-search search-icon"></i>
-                <input type="text" id="searchInput" placeholder="Joy nomi bo'yicha qidirish..." />
+                <input type="text" id="searchInput" placeholder="Search by place name..." />
                 <button id="searchBtn"><i class="fas fa-arrow-right"></i></button>
             </div>
-            <div class="filter-tags">
-                <span class="tag active" data-filter="all"><i class="fas fa-th-list"></i> Barchasi</span>
-                <span class="tag" data-filter="tarixiy"><i class="fas fa-history"></i> Tarixiy</span>
-                <span class="tag" data-filter="ilmiy"><i class="fas fa-flask"></i> Ilmiy</span>
-                <span class="tag" data-filter="diniy"><i class="fas fa-mosque"></i> Diniy</span>
-                <span class="tag" data-filter="madaniy"><i class="fas fa-shopping-bag"></i> Madaniy</span>
+            <div class="filter-tags animate__animated animate__fadeInUp">
+                <span class="tag active" data-filter="all"><i class="fas fa-th-list"></i> All</span>
+                <span class="tag" data-filter="historical"><i class="fas fa-history"></i> Historical</span>
+                <span class="tag" data-filter="scientific"><i class="fas fa-flask"></i> Scientific</span>
+                <span class="tag" data-filter="religious"><i class="fas fa-mosque"></i> Religious</span>
+                <span class="tag" data-filter="cultural"><i class="fas fa-shopping-bag"></i> Cultural</span>
             </div>
         </div>
     </section>
@@ -74,230 +90,310 @@
     <!-- ====== CARDS GRID ====== -->
     <section class="cards-section">
         <div class="container">
-            <h2 class="section-title">
-                <i class="fas fa-star"></i> Mashhur joylar
+            <h2 class="section-title animate__animated animate__fadeIn">
+                <i class="fas fa-star"></i> Famous Places
+                <span class="title-line"></span>
             </h2>
             <div class="cards-grid" id="cardsGrid">
 
-                <!-- Card 1: Registon -->
-                <div class="card" data-category="tarixiy">
+                <!-- Card 1: Registan -->
+                <div class="card animate__animated animate__fadeInUp" data-category="historical" data-delay="0">
                     <div class="card-image">
-                        <img src="images/4.jpg" alt="Registon maydoni" loading="lazy" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22200%22%3E%3Crect fill=%22%23e8ddd0%22 width=%22300%22 height=%22200%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 font-family=%22Arial%22 font-size=%2216%22 fill=%22%238a7a6a%22%3ERegiston%3C/text%3E%3C/svg%3E'" />
-                        <span class="card-badge"><i class="fas fa-star"></i> Mashhur</span>
+                        <img src="images/4.jpg" alt="Registan Square" loading="lazy" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22200%22%3E%3Crect fill=%22%23f5d742%22 width=%22300%22 height=%22200%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 font-family=%22Arial%22 font-size=%2216%22 fill=%22%238b2a2a%22%3ERegistan%3C/text%3E%3C/svg%3E'" />
+                        <span class="card-badge"><i class="fas fa-star"></i> Famous</span>
+                        <div class="card-overlay">
+                            <i class="fas fa-expand"></i>
+                        </div>
                     </div>
                     <div class="card-body">
-                        <h3><i class="fas fa-monument"></i> Registon maydoni</h3>
-                        <p class="card-location"><i class="fas fa-map-pin"></i> Samarqand markazi</p>
-                        <p class="card-preview">Markaziy Osiyodagi eng mashhur tarixiy majmua...</p>
+                        <h3><i class="fas fa-monument"></i> Registan Square</h3>
+                        <p class="card-location"><i class="fas fa-map-pin"></i> Samarkand Center</p>
+                        <div class="card-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>4.9</span>
+                        </div>
+                        <p class="card-preview">The most famous historical complex in Central Asia...</p>
                         <button class="btn-more" data-index="0">
-                            <i class="fas fa-plus-circle"></i> <span>Ko'proq</span>
+                            <i class="fas fa-plus-circle"></i> <span>Read More</span>
                         </button>
                         <div class="extra">
-                            <p><i class="fas fa-landmark" style="color:#8b2a2a;"></i> <strong>Registon maydoni</strong> — Samarqand shahrining yuragi va Markaziy Osiyodagi eng mashhur tarixiy majmualardan biridir. Ushbu maydon qadimda shaharning asosiy savdo va ijtimoiy markazi bo‘lib xizmat qilgan. <em>“Registon”</em> so‘zi fors tilidan olingan bo‘lib, <strong>“qumli joy”</strong> degan ma’noni anglatadi.</p>
-                            <p>Registon maydoni uchta ulkan madrasa bilan o‘ralgan:</p>
+                            <p><i class="fas fa-landmark" style="color:#f5d742;"></i> <strong>Registan Square</strong> — the heart of Samarkand and the most famous historical complex in Central Asia. The word <em>"Registan"</em> comes from Persian, meaning <strong>"sandy place"</strong>.</p>
+                            <p>Registan Square is surrounded by three magnificent madrasas:</p>
                             <ul>
-                                <li><i class="fas fa-university"></i> <strong>Ulug‘bek madrasasi</strong> (XV asr)</li>
-                                <li><i class="fas fa-university"></i> <strong>Sherdor madrasasi</strong> (XVII asr)</li>
-                                <li><i class="fas fa-university"></i> <strong>Tillaqori madrasasi</strong> — oltin suvi bilan bezatilgan</li>
+                                <li><i class="fas fa-university"></i> <strong>Ulugbek Madrasa</strong> (15th century)</li>
+                                <li><i class="fas fa-university"></i> <strong>Sherdor Madrasa</strong> (17th century)</li>
+                                <li><i class="fas fa-university"></i> <strong>Tillaqori Madrasa</strong> — decorated with gold leaf</li>
                             </ul>
-                            <p><i class="fas fa-award" style="color:#f5d742;"></i> Registon <span class="highlight">UNESCO</span>ning Jahon merosi ro‘yxatiga kiritilgan.</p>
+                            <p><i class="fas fa-award" style="color:#f5d742;"></i> Registan is included in the <span class="highlight">UNESCO</span> World Heritage list.</p>
                             <div class="extra-info">
-                                <span><i class="fas fa-calendar"></i> XIV–XV asr</span>
+                                <span><i class="fas fa-calendar"></i> 14th–15th c.</span>
                                 <span><i class="fas fa-clock"></i> 08:00–20:00</span>
-                                <span><i class="fas fa-ticket"></i> 20 000 so'm</span>
-                                <span><i class="fas fa-star" style="color:#f5d742;"></i> 4.9 ⭐</span>
+                                <span><i class="fas fa-ticket"></i> 20,000 UZS</span>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Card 2: Bibi Xonim -->
-                <div class="card" data-category="diniy">
+                <!-- Card 2: Bibi Khanum -->
+                <div class="card animate__animated animate__fadeInUp" data-category="religious" data-delay="100">
                     <div class="card-image">
-                        <img src="images/download.jpg" alt="Bibi Xonim masjidi" loading="lazy" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22200%22%3E%3Crect fill=%22%23e8ddd0%22 width=%22300%22 height=%22200%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 font-family=%22Arial%22 font-size=%2216%22 fill=%22%238a7a6a%22%3EBibi Xonim%3C/text%3E%3C/svg%3E'" />
-                        <span class="card-badge"><i class="fas fa-mosque"></i> Diniy</span>
+                        <img src="images/download.jpg" alt="Bibi Khanum Mosque" loading="lazy" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22200%22%3E%3Crect fill=%22%23f5d742%22 width=%22300%22 height=%22200%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 font-family=%22Arial%22 font-size=%2216%22 fill=%22%238b2a2a%22%3EBibi Khanum%3C/text%3E%3C/svg%3E'" />
+                        <span class="card-badge"><i class="fas fa-mosque"></i> Religious</span>
+                        <div class="card-overlay">
+                            <i class="fas fa-expand"></i>
+                        </div>
                     </div>
                     <div class="card-body">
-                        <h3><i class="fas fa-mosque"></i> Bibi Xonim masjidi</h3>
-                        <p class="card-location"><i class="fas fa-map-pin"></i> Samarqand shimoli</p>
-                        <p class="card-preview">Amir Temur tomonidan qurdirilgan ulug'vor masjid...</p>
+                        <h3><i class="fas fa-mosque"></i> Bibi Khanum Mosque</h3>
+                        <p class="card-location"><i class="fas fa-map-pin"></i> Northern Samarkand</p>
+                        <div class="card-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>5.0</span>
+                        </div>
+                        <p class="card-preview">A magnificent mosque built by Amir Timur...</p>
                         <button class="btn-more" data-index="1">
-                            <i class="fas fa-plus-circle"></i> <span>Ko'proq</span>
+                            <i class="fas fa-plus-circle"></i> <span>Read More</span>
                         </button>
                         <div class="extra">
-                            <p><i class="fas fa-landmark" style="color:#8b2a2a;"></i> <strong>Bibi-Xonim masjidi</strong> Samarqand shahridagi eng ulug‘ va tarixiy obidalardan biri hisoblanadi. XIV–XV asrlarda <strong>Amir Temur</strong> tomonidan qurdirilgan. Rivoyatlarga ko‘ra, masjid Temurning sevimli rafiqasi <strong>Bibi Xonim</strong> nomi bilan atalgan.</p>
-                            <p>Masjidning ulkan peshtoqi, baland gumbazlari va keng hovlisi o‘ziga xos me’moriy yechimlar bilan ajralib turadi. Devorlari murakkab naqshlar, koshinlar va yozuvlar bilan bezatilgan.</p>
-                            <p><i class="fas fa-users"></i> Har yili minglab sayyohlar bu yerga tashrif buyurishadi.</p>
+                            <p><i class="fas fa-landmark" style="color:#f5d742;"></i> <strong>Bibi Khanum Mosque</strong> is one of the greatest historical monuments in Samarkand. It was built in the 14th–15th centuries by <strong>Amir Timur</strong>.</p>
+                            <p>The mosque features a magnificent portal, high domes, and a spacious courtyard with unique architectural solutions.</p>
+                            <p><i class="fas fa-users"></i> Thousands of tourists visit this site every year.</p>
                             <div class="extra-info">
-                                <span><i class="fas fa-calendar"></i> XIV–XV asr</span>
+                                <span><i class="fas fa-calendar"></i> 14th–15th c.</span>
                                 <span><i class="fas fa-clock"></i> 07:00–19:00</span>
-                                <span><i class="fas fa-ticket"></i> 15 000 so'm</span>
-                                <span><i class="fas fa-star" style="color:#f5d742;"></i> 4.7 ⭐</span>
+                                <span><i class="fas fa-ticket"></i> 15,000 UZS</span>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Card 3: Shahi Zinda -->
-                <div class="card" data-category="diniy">
+                <div class="card animate__animated animate__fadeInUp" data-category="religious" data-delay="200">
                     <div class="card-image">
-                        <img src="images/123.jpg" alt="Shahi Zinda" loading="lazy" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22200%22%3E%3Crect fill=%22%23e8ddd0%22 width=%22300%22 height=%22200%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 font-family=%22Arial%22 font-size=%2216%22 fill=%22%238a7a6a%22%3EShahi Zinda%3C/text%3E%3C/svg%3E'" />
-                        <span class="card-badge"><i class="fas fa-star-and-crescent"></i> Muqaddas</span>
+                        <img src="images/123.jpg" alt="Shahi Zinda" loading="lazy" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22200%22%3E%3Crect fill=%22%23f5d742%22 width=%22300%22 height=%22200%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 font-family=%22Arial%22 font-size=%2216%22 fill=%22%238b2a2a%22%3EShahi Zinda%3C/text%3E%3C/svg%3E'" />
+                        <span class="card-badge"><i class="fas fa-star-and-crescent"></i> Sacred</span>
+                        <div class="card-overlay">
+                            <i class="fas fa-expand"></i>
+                        </div>
                     </div>
                     <div class="card-body">
-                        <h3><i class="fas fa-star-and-crescent"></i> Shohi Zinda</h3>
-                        <p class="card-location"><i class="fas fa-map-pin"></i> Samarqand shimoli-sharqi</p>
-                        <p class="card-preview">Muqaddas maqbaralar majmuasi...</p>
+                        <h3><i class="fas fa-star-and-crescent"></i> Shahi Zinda</h3>
+                        <p class="card-location"><i class="fas fa-map-pin"></i> Northeast Samarkand</p>
+                        <div class="card-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>4.8</span>
+                        </div>
+                        <p class="card-preview">A sacred complex of mausoleums...</p>
                         <button class="btn-more" data-index="2">
-                            <i class="fas fa-plus-circle"></i> <span>Ko'proq</span>
+                            <i class="fas fa-plus-circle"></i> <span>Read More</span>
                         </button>
                         <div class="extra">
-                            <p><i class="fas fa-star-and-crescent" style="color:#8b2a2a;"></i> <strong>Shohi Zinda</strong> — <em>“Tirik shoh”</em> degan ma’noni anglatadi. Bu yerda Payg‘ambar Muhammad (s.a.v.)ning amakivachchasi <strong>Qusam ibn Abbos</strong> dafn etilgan.</p>
-                            <p>Majmua XI–XV asrlar davomida shakllangan bo‘lib, ko‘plab maqbaralar, masjidlar va boshqa me’moriy inshootlardan iborat. Temuriylar davriga oid ko‘plab amirlar va zodagonlar dafn etilgan.</p>
-                            <p><i class="fas fa-stairs"></i> Majmuaning <strong>zinapoyali yo‘li</strong> juda mashhur.</p>
+                            <p><i class="fas fa-star-and-crescent" style="color:#f5d742;"></i> <strong>Shahi Zinda</strong> means <em>"Living King"</em>. It is believed that <strong>Qusam ibn Abbas</strong>, cousin of Prophet Muhammad (PBUH), is buried here.</p>
+                            <p>The complex was formed between the 11th–15th centuries and consists of many mausoleums, mosques, and other architectural structures.</p>
+                            <p><i class="fas fa-stairs"></i> The <strong>stairway path</strong> of the complex is very famous.</p>
                             <div class="extra-info">
-                                <span><i class="fas fa-calendar"></i> XI–XV asr</span>
+                                <span><i class="fas fa-calendar"></i> 11th–15th c.</span>
                                 <span><i class="fas fa-clock"></i> 08:00–18:00</span>
-                                <span><i class="fas fa-ticket"></i> 12 000 so'm</span>
-                                <span><i class="fas fa-star" style="color:#f5d742;"></i> 4.8 ⭐</span>
+                                <span><i class="fas fa-ticket"></i> 12,000 UZS</span>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Card 4: Ulug'bek rasadxonasi -->
-                <div class="card" data-category="ilmiy">
+                <!-- Card 4: Ulugbek Observatory -->
+                <div class="card animate__animated animate__fadeInUp" data-category="scientific" data-delay="100">
                     <div class="card-image">
-                        <img src="images/5.jpg" alt="Ulug'bek rasadxonasi" loading="lazy" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22200%22%3E%3Crect fill=%22%23e8ddd0%22 width=%22300%22 height=%22200%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 font-family=%22Arial%22 font-size=%2216%22 fill=%22%238a7a6a%22%3ERasadxona%3C/text%3E%3C/svg%3E'" />
-                        <span class="card-badge"><i class="fas fa-flask"></i> Ilmiy</span>
+                        <img src="images/5.jpg" alt="Ulugbek Observatory" loading="lazy" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22200%22%3E%3Crect fill=%22%23f5d742%22 width=%22300%22 height=%22200%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 font-family=%22Arial%22 font-size=%2216%22 fill=%22%238b2a2a%22%3EObservatory%3C/text%3E%3C/svg%3E'" />
+                        <span class="card-badge"><i class="fas fa-flask"></i> Scientific</span>
+                        <div class="card-overlay">
+                            <i class="fas fa-expand"></i>
+                        </div>
                     </div>
                     <div class="card-body">
-                        <h3><i class="fas fa-telescope"></i> Ulug'bek rasadxonasi</h3>
-                        <p class="card-location"><i class="fas fa-map-pin"></i> Samarqand janubi</p>
-                        <p class="card-preview">XV asrdagi eng yirik astronomiya markazi...</p>
+                        <h3><i class="fas fa-telescope"></i> Ulugbek Observatory</h3>
+                        <p class="card-location"><i class="fas fa-map-pin"></i> Southern Samarkand</p>
+                        <div class="card-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>5.0</span>
+                        </div>
+                        <p class="card-preview">The largest astronomical center of the 15th century...</p>
                         <button class="btn-more" data-index="3">
-                            <i class="fas fa-plus-circle"></i> <span>Ko'proq</span>
+                            <i class="fas fa-plus-circle"></i> <span>Read More</span>
                         </button>
                         <div class="extra">
-                            <p><i class="fas fa-telescope" style="color:#8b2a2a;"></i> <strong>Ulug‘bek rasadxonasi</strong> XV asrda buyuk olim va hukmdor <strong>Mirzo Ulug‘bek</strong> tomonidan qurdirilgan. O‘z davrining eng yirik astronomiya markazi.</p>
-                            <p>Eng asosiy qismi — radiusi 40 metr bo‘lgan <strong>sekstant</strong> (yulduzlarni o‘lchash asbobi).</p>
-                            <p><i class="fas fa-users"></i> Bu yerda <strong>Qozizoda Rumiy</strong> va <strong>Ali Qushchi</strong> kabi olimlar ishlagan. <em>“Ziji jadidi Ko‘ragoniy”</em> asari yaratilgan.</p>
+                            <p><i class="fas fa-telescope" style="color:#f5d742;"></i> <strong>Ulugbek Observatory</strong> was built in the 15th century by the great scientist and ruler <strong>Mirzo Ulugbek</strong>.</p>
+                            <p>The main part is a <strong>sextant</strong> with a radius of 40 meters (used for measuring stars).</p>
+                            <p><i class="fas fa-users"></i> Scientists like <strong>Qazi Zada Rumi</strong> and <strong>Ali Qushchi</strong> worked here.</p>
                             <div class="extra-info">
-                                <span><i class="fas fa-calendar"></i> XV asr</span>
+                                <span><i class="fas fa-calendar"></i> 15th century</span>
                                 <span><i class="fas fa-clock"></i> 09:00–17:00</span>
-                                <span><i class="fas fa-ticket"></i> 10 000 so'm</span>
-                                <span><i class="fas fa-star" style="color:#f5d742;"></i> 4.6 ⭐</span>
+                                <span><i class="fas fa-ticket"></i> 10,000 UZS</span>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Card 5: Afrosiyob -->
-                <div class="card" data-category="tarixiy">
+                <!-- Card 5: Afrosiyob Museum -->
+                <div class="card animate__animated animate__fadeInUp" data-category="historical" data-delay="200">
                     <div class="card-image">
-                        <img src="images/6.jpg" alt="Afrosiyob muzeyi" loading="lazy" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22200%22%3E%3Crect fill=%22%23e8ddd0%22 width=%22300%22 height=%22200%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 font-family=%22Arial%22 font-size=%2216%22 fill=%22%238a7a6a%22%3EAfrosiyob%3C/text%3E%3C/svg%3E'" />
-                        <span class="card-badge"><i class="fas fa-history"></i> Tarixiy</span>
+                        <img src="images/6.jpg" alt="Afrosiyob Museum" loading="lazy" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22200%22%3E%3Crect fill=%22%23f5d742%22 width=%22300%22 height=%22200%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 font-family=%22Arial%22 font-size=%2216%22 fill=%22%238b2a2a%22%3EAfrosiyob%3C/text%3E%3C/svg%3E'" />
+                        <span class="card-badge"><i class="fas fa-history"></i> Historical</span>
+                        <div class="card-overlay">
+                            <i class="fas fa-expand"></i>
+                        </div>
                     </div>
                     <div class="card-body">
-                        <h3><i class="fas fa-museum"></i> Afrosiyob muzeyi</h3>
-                        <p class="card-location"><i class="fas fa-map-pin"></i> Samarqand shimoli</p>
-                        <p class="card-preview">Qadimgi shahar — Afrosiyob xarobalari...</p>
+                        <h3><i class="fas fa-museum"></i> Afrosiyob Museum</h3>
+                        <p class="card-location"><i class="fas fa-map-pin"></i> Northern Samarkand</p>
+                        <div class="card-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>4.7</span>
+                        </div>
+                        <p class="card-preview">Ruins of the ancient city of Afrosiyob...</p>
                         <button class="btn-more" data-index="4">
-                            <i class="fas fa-plus-circle"></i> <span>Ko'proq</span>
+                            <i class="fas fa-plus-circle"></i> <span>Read More</span>
                         </button>
                         <div class="extra">
-                            <p><i class="fas fa-museum" style="color:#8b2a2a;"></i> <strong>Afrosiyob muzeyi</strong> qadimgi shaharning arxeologik yodgorliklari asosida tashkil etilgan. Hudud miloddan avvalgi <strong>VII asr</strong> va undan keyingi davrlarni o‘z ichiga oladi.</p>
-                            <p>Muzey kolleksiyasida:</p>
+                            <p><i class="fas fa-museum" style="color:#f5d742;"></i> <strong>Afrosiyob Museum</strong> is one of the oldest historical sites in Samarkand, containing archaeological remains from the <strong>7th century BC</strong> and later periods.</p>
+                            <p>The museum collection includes:</p>
                             <ul>
-                                <li><i class="fas fa-paintbrush"></i> Qadimgi freskalar</li>
-                                <li><i class="fas fa-wine-bottle"></i> Kulolchilik mahsulotlari</li>
-                                <li><i class="fas fa-sword"></i> Qadimiy qurollar</li>
-                                <li><i class="fas fa-coins"></i> Tilla va kumush buyumlar</li>
+                                <li><i class="fas fa-paintbrush"></i> Ancient frescoes</li>
+                                <li><i class="fas fa-wine-bottle"></i> Ceramic products</li>
+                                <li><i class="fas fa-sword"></i> Ancient weapons</li>
                             </ul>
                             <div class="extra-info">
-                                <span><i class="fas fa-calendar"></i> VII asr</span>
+                                <span><i class="fas fa-calendar"></i> 7th c. BC</span>
                                 <span><i class="fas fa-clock"></i> 09:00–18:00</span>
-                                <span><i class="fas fa-ticket"></i> 8 000 so'm</span>
-                                <span><i class="fas fa-star" style="color:#f5d742;"></i> 4.5 ⭐</span>
+                                <span><i class="fas fa-ticket"></i> 8,000 UZS</span>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Card 6: Gur Emir -->
-                <div class="card" data-category="tarixiy diniy">
+                <div class="card animate__animated animate__fadeInUp" data-category="historical religious" data-delay="0">
                     <div class="card-image">
-                        <img src="images/gur-emir.jpg" alt="Gur Emir maqbarasi" loading="lazy" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22200%22%3E%3Crect fill=%22%23e8ddd0%22 width=%22300%22 height=%22200%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 font-family=%22Arial%22 font-size=%2216%22 fill=%22%238a7a6a%22%3EGur Emir%3C/text%3E%3C/svg%3E'" />
-                        <span class="card-badge"><i class="fas fa-crown"></i> Amir Temur</span>
+                        <img src="images/gur-emir.jpg" alt="Gur Emir Mausoleum" loading="lazy" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22200%22%3E%3Crect fill=%22%23f5d742%22 width=%22300%22 height=%22200%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 font-family=%22Arial%22 font-size=%2216%22 fill=%22%238b2a2a%22%3EGur Emir%3C/text%3E%3C/svg%3E'" />
+                        <span class="card-badge"><i class="fas fa-crown"></i> Amir Timur</span>
+                        <div class="card-overlay">
+                            <i class="fas fa-expand"></i>
+                        </div>
                     </div>
                     <div class="card-body">
-                        <h3><i class="fas fa-crown"></i> Gur Emir maqbarasi</h3>
-                        <p class="card-location"><i class="fas fa-map-pin"></i> Samarqand markazi</p>
-                        <p class="card-preview">Amir Temur va Temuriylar sulolasi maqbarasi...</p>
+                        <h3><i class="fas fa-crown"></i> Gur Emir Mausoleum</h3>
+                        <p class="card-location"><i class="fas fa-map-pin"></i> Samarkand Center</p>
+                        <div class="card-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>5.0</span>
+                        </div>
+                        <p class="card-preview">Mausoleum of Amir Timur and the Timurid dynasty...</p>
                         <button class="btn-more" data-index="5">
-                            <i class="fas fa-plus-circle"></i> <span>Ko'proq</span>
+                            <i class="fas fa-plus-circle"></i> <span>Read More</span>
                         </button>
                         <div class="extra">
-                            <p><i class="fas fa-crown" style="color:#8b2a2a;"></i> <strong>Gur Emir</strong> — Amir Temur va Temuriylar sulolasi vakillari dafn etilgan maqbara. XV asrda qurilgan, moviy gumbazi va hashamatli bezaklari bilan mashhur.</p>
-                            <p>Maqbarada <strong>Amir Temur</strong>, <strong>Shohruh</strong>, <strong>Mironshoh</strong>, <strong>Ulug‘bek</strong> va <strong>Muhammad Sulton</strong> kabilar dafn etilgan.</p>
-                            <p><i class="fas fa-archway"></i> Gur Emir <strong>Toj Mahal</strong> uchun me’moriy namuna bo‘lib xizmat qilgan.</p>
+                            <p><i class="fas fa-crown" style="color:#f5d742;"></i> <strong>Gur Emir</strong> is the mausoleum of Amir Timur and members of the Timurid dynasty, built in the 15th century.</p>
+                            <p>Buried here are <strong>Amir Timur</strong>, <strong>Shahrukh</strong>, <strong>Mironshah</strong>, <strong>Ulugbek</strong>, and <strong>Muhammad Sultan</strong>.</p>
+                            <p><i class="fas fa-archway"></i> Gur Emir served as architectural inspiration for the <strong>Taj Mahal</strong>.</p>
                             <div class="extra-info">
-                                <span><i class="fas fa-calendar"></i> XV asr</span>
+                                <span><i class="fas fa-calendar"></i> 15th century</span>
                                 <span><i class="fas fa-clock"></i> 08:00–19:00</span>
-                                <span><i class="fas fa-ticket"></i> 18 000 so'm</span>
-                                <span><i class="fas fa-star" style="color:#f5d742;"></i> 4.8 ⭐</span>
+                                <span><i class="fas fa-ticket"></i> 18,000 UZS</span>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Card 7: Siob bozori -->
-                <div class="card" data-category="madaniy">
+                <!-- Card 7: Siab Bazaar -->
+                <div class="card animate__animated animate__fadeInUp" data-category="cultural" data-delay="100">
                     <div class="card-image">
-                        <img src="images/siob.jpg" alt="Siob bozori" loading="lazy" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22200%22%3E%3Crect fill=%22%23e8ddd0%22 width=%22300%22 height=%22200%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 font-family=%22Arial%22 font-size=%2216%22 fill=%22%238a7a6a%22%3ESiob bozori%3C/text%3E%3C/svg%3E'" />
-                        <span class="card-badge"><i class="fas fa-shopping-bag"></i> Bozor</span>
+                        <img src="images/siob.jpg" alt="Siab Bazaar" loading="lazy" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22200%22%3E%3Crect fill=%22%23f5d742%22 width=%22300%22 height=%22200%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 font-family=%22Arial%22 font-size=%2216%22 fill=%22%238b2a2a%22%3ESiab%3C/text%3E%3C/svg%3E'" />
+                        <span class="card-badge"><i class="fas fa-shopping-bag"></i> Bazaar</span>
+                        <div class="card-overlay">
+                            <i class="fas fa-expand"></i>
+                        </div>
                     </div>
                     <div class="card-body">
-                        <h3><i class="fas fa-store"></i> Siob bozori</h3>
-                        <p class="card-location"><i class="fas fa-map-pin"></i> Registon yaqinida</p>
-                        <p class="card-preview">Samarqandning rang-barang sharq bozori...</p>
+                        <h3><i class="fas fa-store"></i> Siab Bazaar</h3>
+                        <p class="card-location"><i class="fas fa-map-pin"></i> Near Registan</p>
+                        <div class="card-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>4.6</span>
+                        </div>
+                        <p class="card-preview">Samarkand's colorful eastern bazaar...</p>
                         <button class="btn-more" data-index="6">
-                            <i class="fas fa-plus-circle"></i> <span>Ko'proq</span>
+                            <i class="fas fa-plus-circle"></i> <span>Read More</span>
                         </button>
                         <div class="extra">
-                            <p><i class="fas fa-store" style="color:#8b2a2a;"></i> <strong>Siob bozori</strong> — Samarqandning eng mashhur va qadimiy bozorlaridan biri. Mahalliy mevalar, quritilgan mevalar, ziravorlar, non va kulolchilik buyumlari sotiladi.</p>
-                            <p><i class="fas fa-bread-slice"></i> Ayniqsa, <strong>Samarqand noni</strong> va <strong>quritilgan o‘rik</strong> bu yerning ramzi.</p>
+                            <p><i class="fas fa-store" style="color:#f5d742;"></i> <strong>Siab Bazaar</strong> is one of Samarkand's most famous and ancient markets.</p>
+                            <p><i class="fas fa-bread-slice"></i> <strong>Samarkand bread</strong> and <strong>dried apricots</strong> are the symbols of this place.</p>
                             <div class="extra-info">
-                                <span><i class="fas fa-calendar"></i> Har kuni</span>
+                                <span><i class="fas fa-calendar"></i> Daily</span>
                                 <span><i class="fas fa-clock"></i> 06:00–19:00</span>
-                                <span><i class="fas fa-ticket"></i> Bepul</span>
-                                <span><i class="fas fa-star" style="color:#f5d742;"></i> 4.4 ⭐</span>
+                                <span><i class="fas fa-ticket"></i> Free</span>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Card 8: Hazrati Xizr -->
-                <div class="card" data-category="diniy">
+                <!-- Card 8: Hazrati Khizr -->
+                <div class="card animate__animated animate__fadeInUp" data-category="religious" data-delay="200">
                     <div class="card-image">
-                        <img src="images/hazrati-xizr.jpg" alt="Hazrati Xizr masjidi" loading="lazy" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22200%22%3E%3Crect fill=%22%23e8ddd0%22 width=%22300%22 height=%22200%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 font-family=%22Arial%22 font-size=%2216%22 fill=%22%238a7a6a%22%3EHazrati Xizr%3C/text%3E%3C/svg%3E'" />
-                        <span class="card-badge"><i class="fas fa-mosque"></i> Qadimiy</span>
+                        <img src="images/hazrati-xizr.jpg" alt="Hazrati Khizr Mosque" loading="lazy" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22200%22%3E%3Crect fill=%22%23f5d742%22 width=%22300%22 height=%22200%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 font-family=%22Arial%22 font-size=%2216%22 fill=%22%238b2a2a%22%3EHazrati Khizr%3C/text%3E%3C/svg%3E'" />
+                        <span class="card-badge"><i class="fas fa-mosque"></i> Ancient</span>
+                        <div class="card-overlay">
+                            <i class="fas fa-expand"></i>
+                        </div>
                     </div>
                     <div class="card-body">
-                        <h3><i class="fas fa-mosque"></i> Hazrati Xizr masjidi</h3>
-                        <p class="card-location"><i class="fas fa-map-pin"></i> Afrosiyob tepaligi</p>
-                        <p class="card-preview">Samarqanddagi eng qadimiy masjidlardan biri...</p>
+                        <h3><i class="fas fa-mosque"></i> Hazrati Khizr Mosque</h3>
+                        <p class="card-location"><i class="fas fa-map-pin"></i> Afrosiyob Hill</p>
+                        <div class="card-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>5.0</span>
+                        </div>
+                        <p class="card-preview">One of the oldest mosques in Samarkand...</p>
                         <button class="btn-more" data-index="7">
-                            <i class="fas fa-plus-circle"></i> <span>Ko'proq</span>
+                            <i class="fas fa-plus-circle"></i> <span>Read More</span>
                         </button>
                         <div class="extra">
-                            <p><i class="fas fa-mosque" style="color:#8b2a2a;"></i> <strong>Hazrati Xizr masjidi</strong> — Samarqanddagi eng qadimiy masjidlardan biri, Afrosiyob tepaligida joylashgan. Afsonaga ko‘ra, bu yerda <strong>Iskandar Zulqarnayn</strong> va <strong>Xizr</strong> alayhissalom uchrashgan.</p>
-                            <p><i class="fas fa-sun"></i> Masjiddan Samarqandning go‘zal manzarasi, ayniqsa <strong>quyosh botishi</strong> paytidagi manzara juda mashhur.</p>
+                            <p><i class="fas fa-mosque" style="color:#f5d742;"></i> <strong>Hazrati Khizr Mosque</strong> is one of Samarkand's oldest mosques, located on Afrosiyob Hill.</p>
+                            <p><i class="fas fa-sun"></i> The mosque offers a beautiful panoramic view of Samarkand, especially during <strong>sunset</strong>.</p>
                             <div class="extra-info">
-                                <span><i class="fas fa-calendar"></i> VIII asr</span>
+                                <span><i class="fas fa-calendar"></i> 8th century</span>
                                 <span><i class="fas fa-clock"></i> 06:00–20:00</span>
-                                <span><i class="fas fa-ticket"></i> Bepul</span>
-                                <span><i class="fas fa-star" style="color:#f5d742;"></i> 4.3 ⭐</span>
+                                <span><i class="fas fa-ticket"></i> Free</span>
                             </div>
                         </div>
                     </div>
@@ -310,11 +406,12 @@
     <!-- ====== MAP SECTION ====== -->
     <section class="map-section" id="mapSection">
         <div class="container">
-            <h2 class="section-title">
-                <i class="fas fa-location-dot"></i> Samarqand xaritada
+            <h2 class="section-title animate__animated animate__fadeIn">
+                <i class="fas fa-location-dot"></i> Samarkand on the Map
+                <span class="title-line"></span>
             </h2>
-            <div class="map-wrapper">
-                <div class="map-container" id="mapContainer">
+            <div class="map-wrapper animate__animated animate__fadeInUp">
+                <div class="map-container">
                     <iframe 
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48002.03117879659!2d66.93361950468815!3d39.65494953047354!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3f4d190e2f4c4e4b%3A0x6b8a3f5a8f4c4e4b!2sSamarqand%2C%20Uzbekistan!5e0!3m2!1sen!2s!4v1700000000000" 
                         width="100%" 
@@ -322,15 +419,17 @@
                         style="border:0;" 
                         allowfullscreen="" 
                         loading="lazy" 
-                        referrerpolicy="no-referrer-when-downgrade">
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="Samarkand Map">
                     </iframe>
                 </div>
                 <div class="map-info">
+                    <h3><i class="fas fa-info-circle"></i> Contact Us</h3>
                     <p><i class="fas fa-phone"></i> +998 66 233 40 40</p>
-                    <p><i class="fas fa-envelope"></i> info@samarqand.uz</p>
-                    <p><i class="fas fa-map-pin"></i> Samarqand, O‘zbekiston</p>
+                    <p><i class="fas fa-envelope"></i> info@samarkand.uz</p>
+                    <p><i class="fas fa-map-pin"></i> Samarkand, Uzbekistan</p>
                     <a href="https://maps.google.com" target="_blank" class="btn-map">
-                        <i class="fas fa-directions"></i> Yo'nalish olish
+                        <i class="fas fa-directions"></i> Get Directions
                     </a>
                 </div>
             </div>
@@ -344,22 +443,22 @@
                 <div class="stat-item" data-count="15">
                     <i class="fas fa-building"></i>
                     <span class="stat-number">0</span>
-                    <span class="stat-label">Tarixiy obida</span>
+                    <span class="stat-label">Historical Monuments</span>
                 </div>
                 <div class="stat-item" data-count="2500">
                     <i class="fas fa-clock"></i>
                     <span class="stat-number">0</span>
-                    <span class="stat-label">Yillik tarix</span>
+                    <span class="stat-label">Years of History</span>
                 </div>
                 <div class="stat-item" data-count="120">
                     <i class="fas fa-globe"></i>
                     <span class="stat-number">0</span>
-                    <span class="stat-label">Mamlakatdan sayyoh</span>
+                    <span class="stat-label">Countries Visiting</span>
                 </div>
                 <div class="stat-item" data-count="4">
                     <i class="fas fa-award"></i>
                     <span class="stat-number">0</span>
-                    <span class="stat-label">UNESCO obyektlari</span>
+                    <span class="stat-label">UNESCO Sites</span>
                 </div>
             </div>
         </div>
@@ -370,46 +469,46 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
-                    <h3><i class="fas fa-landmark"></i> Samarqand.uz</h3>
-                    <p>Samarqand — O‘zbekistonning durdonasi, jahon sivilizatsiyasining bebaho durdonalaridan biri.</p>
+                    <h3><i class="fas fa-landmark"></i> Samarkand.uz</h3>
+                    <p>Samarkand — the jewel of Uzbekistan, one of the priceless treasures of world civilization.</p>
                     <div class="social-links">
-                        <a href="#"><i class="fab fa-telegram"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
                     </div>
                 </div>
                 <div class="footer-col">
-                    <h4><i class="fas fa-link"></i> Foydali havolalar</h4>
+                    <h4><i class="fas fa-link"></i> Useful Links</h4>
                     <ul>
-                        <li><a href="#places"><i class="fas fa-map-pin"></i> Joylar</a></li>
-                        <li><a href="#mapSection"><i class="fas fa-location-dot"></i> Lokatsiya</a></li>
-                        <li><a href="#"><i class="fas fa-history"></i> Tarix</a></li>
-                        <li><a href="#"><i class="fas fa-images"></i> Galeriya</a></li>
+                        <li><a href="#places"><i class="fas fa-map-pin"></i> Places</a></li>
+                        <li><a href="#mapSection"><i class="fas fa-location-dot"></i> Location</a></li>
+                        <li><a href="#"><i class="fas fa-history"></i> History</a></li>
+                        <li><a href="#"><i class="fas fa-images"></i> Gallery</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
-                    <h4><i class="fas fa-address-book"></i> Aloqa</h4>
+                    <h4><i class="fas fa-address-book"></i> Contact</h4>
                     <ul>
                         <li><i class="fas fa-phone"></i> +998 66 233 40 40</li>
-                        <li><i class="fas fa-envelope"></i> info@samarqand.uz</li>
-                        <li><i class="fas fa-map-pin"></i> Samarqand, O‘zbekiston</li>
+                        <li><i class="fas fa-envelope"></i> info@samarkand.uz</li>
+                        <li><i class="fas fa-map-pin"></i> Samarkand, Uzbekistan</li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Samarqand.uz — <i class="fas fa-heart" style="color:#f5d742;"></i> Barcha huquqlar himoyalangan</p>
+                <p>&copy; 2025 Samarkand.uz — <i class="fas fa-heart" style="color:#f5d742;"></i> All rights reserved</p>
             </div>
         </div>
     </footer>
 
     <!-- ====== BACK TO TOP ====== -->
-    <button id="backToTop" class="back-to-top" aria-label="Yuqoriga chiqish">
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">
         <i class="fas fa-chevron-up"></i>
     </button>
 
     <!-- ====== JAVASCRIPT ====== -->
-    <script src="assets/script.js"></script>
+    <script src="js/script.js"></script>
 
 </body>
 </html>
